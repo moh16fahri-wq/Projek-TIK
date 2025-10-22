@@ -327,6 +327,9 @@ function absen(status) {
     }
 }
 
+// GANTI FUNGSI INI DI script.js
+// Cari fungsi prosesAbsensi dan ganti dengan kode di bawah:
+
 async function prosesAbsensi(status, fotoNama = null) {
     const today = new Date().toISOString().split('T')[0];
     const waktu = new Date().toTimeString().split(' ')[0];
@@ -338,6 +341,13 @@ async function prosesAbsensi(status, fotoNama = null) {
         formData.append('status', status);
         formData.append('keterangan', fotoNama || '');
         
+        console.log('Mengirim absensi:', {
+            id_siswa: currentUser.id,
+            tanggal: today,
+            status: status,
+            keterangan: fotoNama || ''
+        });
+        
         const response = await fetch('save_absensi.php', {
             method: 'POST',
             body: formData
@@ -345,7 +355,10 @@ async function prosesAbsensi(status, fotoNama = null) {
         
         const result = await response.json();
         
+        console.log('Respon server:', result);
+        
         if (result.success) {
+            // Tambahkan ke data lokal
             data.absensi.push({
                 id: result.id || Date.now(),
                 id_siswa: currentUser.id,
@@ -354,19 +367,19 @@ async function prosesAbsensi(status, fotoNama = null) {
                 status: status,
                 tanggal: today,
                 waktu: waktu,
-                foto: fotoNama
+                keterangan: fotoNama || ''
             });
             
             absensiHariIniSelesai = true;
-            alert(`Absensi ${status} berhasil dicatat!`);
+            alert(`✅ Absensi ${status} berhasil dicatat!`);
             showDashboard();
         } else {
-            alert('Error: ' + result.message);
+            alert('❌ Error: ' + result.message);
         }
         
     } catch (error) {
-        console.error('Error:', error);
-        alert('Terjadi kesalahan saat menyimpan absensi');
+        console.error('Error saat menyimpan:', error);
+        alert('❌ Terjadi kesalahan: ' + error.message);
     }
 }
 
@@ -1264,4 +1277,5 @@ async function hapusPengumuman(id) {
 }
 
 // INISIALISASI APLIKASI
+
 document.addEventListener('DOMContentLoaded', loadDataAndInit);
