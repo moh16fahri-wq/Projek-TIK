@@ -22,7 +22,17 @@ if (empty($table) || $id == 0) {
     exit;
 }
 
-$allowed_tables = ['pengumuman', 'tugas', 'materi', 'siswas', 'gurus', 'kelas', 'jadwal_pelajaran'];
+// UPDATED: Tambahkan 'absensi', 'gurus', 'kelas' ke daftar tabel yang diizinkan
+$allowed_tables = [
+    'pengumuman', 
+    'tugas', 
+    'materi', 
+    'siswas', 
+    'gurus', 
+    'kelas', 
+    'jadwal_pelajaran', 
+    'absensi'
+];
 
 if (!in_array($table, $allowed_tables)) {
     echo json_encode(['success' => false, 'message' => 'Tabel tidak valid']);
