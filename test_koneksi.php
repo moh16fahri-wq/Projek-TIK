@@ -39,10 +39,10 @@ header('Content-Type: text/html; charset=utf-8');
 
 <?php
 // Konfigurasi database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_sekolah_digital";
+$servername = "sekolahdigital.infinityfree.com";  // MySQL Hostname dari InfinityFree
+$username = "if0_40233112";              // MySQL Username dari InfinityFree
+$password = "projektiktkj1";      // MySQL Password yang Anda buat
+$dbname = "if0_40233112_sekolahdigital";        // MySQL Database dari InfinityFree
 
 echo '<div class="box">';
 echo '<h2>?? Langkah 1: Cek Koneksi MySQL</h2>';
@@ -321,4 +321,5 @@ $conn->close();
 </div>
 
 </body>
+
 </html>
