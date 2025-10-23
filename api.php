@@ -5,11 +5,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// Koneksi Database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_sekolah_digital";
+$servername = "sekolahdigital.infinityfree.com";  // MySQL Hostname dari InfinityFree
+$username = "if0_40233112";              // MySQL Username dari InfinityFree
+$password = "projektiktkj1";      // MySQL Password yang Anda buat
+$dbname = "if0_40233112_sekolahdigital";        // MySQL Database dari InfinityFree
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -260,4 +259,5 @@ try {
 }
 
 $conn->close();
+
 ?>
