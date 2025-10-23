@@ -2,10 +2,10 @@
 // File untuk mengecek struktur database
 header('Content-Type: text/html; charset=utf-8');
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_sekolah_digital";
+$servername = "sekolahdigital.infinityfree.com";  // MySQL Hostname dari InfinityFree
+$username = "if0_40233112";              // MySQL Username dari InfinityFree
+$password = "projektiktkj1";      // MySQL Password yang Anda buat
+$dbname = "if0_40233112_sekolahdigital";        // MySQL Database dari InfinityFree
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -88,4 +88,5 @@ echo "<li>Pastikan file <strong>save_jadwal_pelajaran.php</strong> sudah di-uplo
 echo "<li>Coba tambah jadwal dari dashboard admin</li>";
 echo "<li>Cek browser console (F12) untuk melihat error detail</li>";
 echo "</ol>";
+
 ?>
